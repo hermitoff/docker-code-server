@@ -15,6 +15,10 @@ RUN \
   echo "**** install runtime dependencies ****" && \
   apt-get update && \
   apt-get install -y \
+    python3.11 \
+    pip \
+    node \
+    npm \
     git \
     jq \
     libatomic1 \
