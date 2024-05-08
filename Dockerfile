@@ -17,15 +17,17 @@ RUN \
   apt-get install -y \
     python3.11 \
     pip \
-    nodejs \
-    npm \
     git \
     jq \
     libatomic1 \
     nano \
     net-tools \
     netcat \
-    sudo && \
+    sudo \
+    curl \
+    bash && \
+  curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
