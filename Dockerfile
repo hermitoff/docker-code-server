@@ -17,7 +17,7 @@ RUN \
   apt-get install -y \
     python3.11 \
     pip \
-    node \
+    nodejs \
     npm \
     git \
     jq \
