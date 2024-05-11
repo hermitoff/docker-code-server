@@ -1,0 +1,23 @@
+name: Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag linuxserver/code-server:latest
+    - name: Save Docker image as artifact
+      run: |
+        docker save -o code-server.rar linuxserver/code-server:latest
+    - name: Upload Docker image artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: docker-image
+        path: code-server.rar
