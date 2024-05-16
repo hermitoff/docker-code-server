@@ -26,7 +26,7 @@ RUN \
     sudo \
     curl \
     bash && \
-  curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
